@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="popAngularTutorial">
+<head>
+	<title>Scope Variable</title>
+	<link href="./../../libs/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<link href="main.css" rel="stylesheet">
+
+</head>
+
+<body ng-controller="IntroToScopeCtrl as Intro">
+<div class="container main-content">
+	<H1>Scope Variable - One controller</H1>
+	<Pre><H4>Source code - JS</H4></Pre>
+	<pre>
+	function IntroToScopeCtrlCnst($scope) {
+		var _this = this;
+		var fieldValue = "variable.fieldValue";
+		$scope.fieldValue="scope.fieldValue";
+		this.fieldValue="this.fieldValue";
+
+		$scope.getFieldValue = function() {
+			return "scope.getFieldValue -> " + fieldValue;
+		}
+
+		this.getFieldValue = function() {
+			return "this.getFieldValue -> " + fieldValue;
+		}
+	}
+	</pre>
+	
+	<Pre><H4>Value</H4></Pre>
+	<pre>
+		<table border=1>
+		<tr>
+			<th>Variable</th>
+			<th>Value</th>
+		</tr>
+		<tr>
+			<td>fieldValue</td>
+			<td>{{ fieldValue }}</td>
+		</tr>
+		<tr>
+			<td>this.fieldValue</td>
+			<td>{{ this.fieldValue }}</td>
+		</tr>
+		<tr>
+			<td>Intro.fieldValue</td>
+			<td>{{ Intro.fieldValue }}</td>
+		</tr>
+		<tr>
+			<td>getFieldValue();</td>
+			<td>{{ getFieldValue();}}</td>
+		</tr>
+		<tr>
+			<td>this.getFieldValue();</td>
+			<td>{{ this.getFieldValue();}}</td>
+		</tr>
+		<tr>
+			<td>Intro.getFieldValue();</td>
+			<td>{{ Intro.getFieldValue();}}</td>
+		</tr>
+	</table>
+	</pre>
+</div>
+<script src="../../libs/angular/angular.min.js"></script>
+<script src="main.js"></script>
+</body>
+</html>
